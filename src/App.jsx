@@ -156,10 +156,10 @@ function App() {
             <h3 className="text-xl md:text-2xl font-bold text-pink-400 mb-2 text-center">Contract Address</h3>
             <div className="flex items-center justify-center space-x-2 bg-black/20 p-3 rounded-lg">
               <code className="text-sm md:text-base text-purple-300 font-mono">
-                8xpz9Yx7GiEmHxU9V7uF9LUwHj9DTx6aS5MgymQjrgle
+              6DLrqJv5XqSUDpeFybQa5MRxCWpgM5H2ZyZ5vngspump
               </code>
               <button 
-                onClick={() => navigator.clipboard.writeText('8xpz9Yx7GiEmHxU9V7uF9LUwHj9DTx6aS5MgymQjrgle')}
+                onClick={() => navigator.clipboard.writeText('6DLrqJv5XqSUDpeFybQa5MRxCWpgM5H2ZyZ5vngspump')}
                 className="hover:bg-purple-500/20 p-2 rounded-full transition-colors"
                 title="Copy to clipboard"
               >
