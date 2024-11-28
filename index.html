@@ -323,48 +323,6 @@
     </footer>
 
     <!-- JavaScript for petition progress -->
-    <script>
-        async function fetchPetitionData() {
-            try {
-                const response = await fetch('https://www.change.org/p/save-conan-the-burbank-family-dog-from-unfair-euthanasia');
-                const html = await response.text();
-                
-                // Parse the HTML to get signature count
-                const signatureMatch = html.match(/"signatureCount":\{"total":(\d+)/);
-                const todaySignatureMatch = html.match(/"dailySignatureCount":(\d+)/);
-                
-                if (signatureMatch && todaySignatureMatch) {
-                    const currentSignatures = parseInt(signatureMatch[1]);
-                    const todaySignatures = parseInt(todaySignatureMatch[1]);
-                    const goal = 1500; // Our target
-                    
-                    // Update the display
-                    document.getElementById('currentSignatures').textContent = currentSignatures.toLocaleString();
-                    document.getElementById('signatureGoal').textContent = goal.toLocaleString();
-                    
-                    // Update progress bar
-                    const percentage = (currentSignatures / goal) * 100;
-                    const progressBar = document.getElementById('petitionProgress');
-                    if (progressBar) {
-                        progressBar.style.width = `${Math.min(percentage, 100)}%`;
-                    }
-                    
-                    // Update today's signatures
-                    const messageElement = document.querySelector('.petition-message');
-                    if (messageElement) {
-                        messageElement.textContent = `${todaySignatures.toLocaleString()} people signed today - Every signature brings us closer to saving Conan!`;
-                    }
-                }
-            } catch (error) {
-                console.error('Error fetching petition data:', error);
-            }
-        }
-
-        // Update immediately and then every minute
-        fetchPetitionData();
-        setInterval(fetchPetitionData, 60000);
-    </script>
-
     <!-- JavaScript for carousel -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -486,24 +444,5 @@
     <!-- Twitter Widget Script -->
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-    <script>
-        async function fetchTokenData() {
-            try {
-                // Replace with your API endpoint to fetch token data
-                const response = await fetch('https://api.example.com/token-data'); 
-                const data = await response.json();
-
-                // Update the DOM with dynamic data
-                document.getElementById('marketCap').textContent = `$${data.marketCap.toLocaleString()}`;
-                document.getElementById('volume').textContent = `$${data.volume.toLocaleString()}`;
-                document.getElementById('holders').textContent = data.holders.toLocaleString();
-            } catch (error) {
-                console.error('Error fetching token data:', error);
-            }
-        }
-
-        // Fetch token data on page load
-        fetchTokenData();
-    </script>
 </body>
 </html>
