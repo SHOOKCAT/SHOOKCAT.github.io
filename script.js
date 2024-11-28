@@ -245,4 +245,40 @@ document.addEventListener('DOMContentLoaded', function() {
         const walk = (x - startX) * 2;
         carousel.scrollLeft = scrollLeft - walk;
     });
-}); 
+});
+
+
+// Add this to your existing script section or create a new one
+function updateCountdown() {
+    const trialDate = new Date('December 2, 2024 13:30:00 PST').getTime();
+    
+    function update() {
+        const now = new Date().getTime();
+        const distance = trialDate - now;
+
+        // Time calculations
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Update the HTML
+        document.getElementById('days').textContent = days.toString().padStart(3, '0');
+        document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+        document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+        document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+
+        // If countdown is finished
+        if (distance < 0) {
+            clearInterval(interval);
+            document.querySelector('.countdown-container').innerHTML = '<h3>Trial In Progress</h3>';
+        }
+    }
+
+    // Update immediately and then every second
+    update();
+    const interval = setInterval(update, 1000);
+}
+
+// Start the countdown when the page loads
+document.addEventListener('DOMContentLoaded', updateCountdown);
