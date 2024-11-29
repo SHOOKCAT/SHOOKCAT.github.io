@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-color: #E01A2B;
+  --text-primary: #333333;
+  --background-start: #FFFFFF;
+  --background-end: #F8F8F8;
+}
+
+body {
+  color: var(--text-primary);
+  background: linear-gradient(to bottom, var(--background-start), var(--background-end));
+  min-height: 100vh;
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-[#E01A2B] text-white px-6 py-3 rounded-lg font-semibold 
+           hover:bg-[#c0172b] transition-colors duration-300 
+           focus:outline-none focus:ring-2 focus:ring-[#E01A2B] focus:ring-opacity-50;
+  }
+  
+  .btn-secondary {
+    @apply border-2 border-[#E01A2B] text-[#E01A2B] px-6 py-3 rounded-lg font-semibold 
+           hover:bg-[#E01A2B] hover:text-white transition-colors duration-300 
+           focus:outline-none focus:ring-2 focus:ring-[#E01A2B] focus:ring-opacity-50;
+  }
+}
+
+/* Gradient Animation */
+@keyframes gradient-x {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-gradient-x {
+  animation: gradient-x 15s ease infinite;
+  background-size: 200% auto;
+}
+
+/* Hero section enhancements */
+.hero-gradient {
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0.8)
+  ),
+  radial-gradient(
+    circle at center,
+    rgba(224, 26, 43, 0.4),
+    rgba(0, 0, 0, 0.6) 70%
+  );
+}
+
+.urgent-badge {
+  background: rgba(220, 38, 38, 0.9);
+  backdrop-filter: blur(4px);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.hero-title {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Button enhancements */
+.primary-button {
+  background: rgb(220, 38, 38);
+  transition: all 0.3s ease;
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.primary-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background: rgb(185, 28, 28);
+}
+
+.secondary-button {
+  background: rgba(220, 38, 38, 0.1);
+  border: 1px solid rgba(220, 38, 38, 0.5);
+  transition: all 0.3s ease;
+}
+
+.secondary-button:hover {
+  background: rgba(220, 38, 38, 0.2);
+  border-color: rgb(220, 38, 38);
+}
+
+/* Video background transitions */
+.video-background {
+  transition: opacity 0.8s ease-in-out;
+  will-change: opacity;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+.image-background {
+  transition: opacity 0.8s ease-in-out;
+  will-change: opacity;
+}
