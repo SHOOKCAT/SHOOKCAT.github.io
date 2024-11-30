@@ -78,8 +78,8 @@ nav {
     position: relative;
     color: #ffffff;
     text-align: center;
-    padding: 180px 20px;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('img/hero-bg.jpeg');
+    padding: 120px 20px;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('img/hero-bg.jpeg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -93,42 +93,51 @@ nav {
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle at center, rgba(224, 26, 43, 0.1), transparent 70%);
+    background: radial-gradient(circle at center, rgba(224, 26, 43, 0.2), transparent 70%);
     z-index: 1;
 }
 
 .hero-content {
     position: relative;
-    max-width: 900px;
+    max-width: 1000px;
     margin: 0 auto;
     z-index: 2;
-    padding: 0 20px;  /* Add padding to prevent edge touching */
     display: flex;
     flex-direction: column;
-    align-items: center;  /* Center all content */
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
 }
 
-.crypto-tag {
+.hero-main {
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.hero-badge {
     display: inline-flex;
     align-items: center;
-    background: rgba(0, 0, 0, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    gap: 12px;
+    background: rgba(224, 26, 43, 0.1);
+    border: 1px solid rgba(224, 26, 43, 0.3);
     border-radius: 50px;
-    padding: 8px 16px;
-    margin-bottom: 30px;
-    backdrop-filter: blur(10px);
-    font-family: 'Monaco', 'Consolas', monospace;
+    padding: 8px 20px;
+    margin-bottom: 24px;
+    margin: 0 auto 24px;
 }
 
-.crypto-symbol {
-    color: #00FF9D;
-    font-weight: 600;
+.urgent-tag {
+    color: #E01A2B;
+    font-weight: 700;
     font-size: 0.9rem;
-    letter-spacing: 0.05em;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
-.crypto-price {
-    margin-left: 12px;
+.deadline-tag {
     padding-left: 12px;
     border-left: 1px solid rgba(255, 255, 255, 0.2);
     color: rgba(255, 255, 255, 0.9);
@@ -136,28 +145,30 @@ nav {
 }
 
 .hero-content h2 {
-    font-size: 3.8rem;
+    font-size: 4.5rem;
     font-weight: 800;
-    margin-bottom: 25px;
-    line-height: 1.2;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    margin: 0 0 20px;
+    line-height: 1.1;
+    background: linear-gradient(45deg, #ffffff, #E01A2B);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: none;
 }
 
-.hero-content p {
+.hero-subtitle {
     font-size: 1.5rem;
-    margin-bottom: 40px;
+    margin: 0 auto 40px;
+    max-width: 700px;
     line-height: 1.5;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
+    color: rgba(255, 255, 255, 0.9);
 }
 
 .hero-buttons {
     display: flex;
     gap: 20px;
     justify-content: center;
-    margin-top: 40px;
+    margin-bottom: 40px;
+    width: 100%;
 }
 
 .btn {
@@ -185,16 +196,191 @@ nav {
 }
 
 .btn-secondary {
-    background: rgba(0, 255, 157, 0.1);
+    background: rgba(255, 255, 255, 0.1);
     color: white;
-    border: 2px solid rgba(0, 255, 157, 0.3);
-    box-shadow: 0 4px 15px rgba(0, 255, 157, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
 }
 
 .btn-secondary:hover {
-    background: rgba(0, 255, 157, 0.2);
+    background: rgba(255, 255, 255, 0.2);
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 255, 157, 0.2);
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
+}
+
+/* New Countdown Styles */
+.countdown-section {
+    margin-top: 3rem;
+    background: rgba(0, 0, 0, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    padding: 2rem 1rem;
+    backdrop-filter: blur(10px);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3),
+                0 0 50px rgba(224, 26, 43, 0.2);
+}
+
+.countdown-alert {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #E01A2B;
+}
+
+.pulse-dot {
+    width: 12px;
+    height: 12px;
+    background-color: #E01A2B;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(224, 26, 43, 0.7);
+    }
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 10px rgba(224, 26, 43, 0);
+    }
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(224, 26, 43, 0);
+    }
+}
+
+.countdown-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.countdown-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 80px;
+}
+
+.countdown-number {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1;
+    font-family: 'Roboto Mono', monospace;
+    color: #ffffff;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+.countdown-label {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 0.5rem;
+}
+
+.countdown-separator {
+    font-size: 3rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.3);
+    margin-top: -0.5rem;
+    padding: 0 0.25rem;
+}
+
+.countdown-message {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .countdown-section {
+        margin: 2rem 0.5rem;
+        padding: 1.5rem 0.5rem;
+    }
+
+    .countdown-container {
+        gap: 0.25rem;
+    }
+
+    .countdown-item {
+        min-width: 60px;
+    }
+
+    .countdown-number {
+        font-size: 2rem;
+    }
+
+    .countdown-separator {
+        font-size: 2rem;
+        padding: 0 0.15rem;
+    }
+
+    .countdown-label {
+        font-size: 0.8rem;
+    }
+
+    .countdown-alert {
+        font-size: 1rem;
+    }
+
+    .countdown-message {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 80px 20px;
+    }
+
+    .hero-content h2 {
+        font-size: 3rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+        padding: 0 20px;
+    }
+
+    .hero-badge {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .deadline-tag {
+        padding-left: 0;
+        border-left: none;
+        padding-top: 8px;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .btn {
+        width: 100%;
+        max-width: 300px;
+    }
 }
 
 /* Container */
@@ -343,71 +529,83 @@ nav {
 
 /* Existing styles for hero, story, and crypto sections remain unchanged */
 
-/* Token Section Base */
+/* Token Section Styles */
 .section-dark {
-    background: #13151D;
+    background: linear-gradient(180deg, #13151D 0%, #1A1E2D 100%);
     color: white;
     padding: 4rem 0;
+    position: relative;
+    overflow: hidden;
 }
 
-/* Token Header */
+.section-dark::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+}
+
+.token-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
 .token-header {
     text-align: center;
-    max-width: 600px;
-    margin: 0 auto 3rem;
-    padding: 0 1rem;
+    margin-bottom: 3rem;
 }
 
 .token-header h2 {
-    font-size: 2.5rem;
-    font-weight: 700;
+    font-size: 2.8rem;
+    font-weight: 800;
+    background: linear-gradient(45deg, #fff, #E01A2B);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     margin-bottom: 1rem;
 }
 
 .token-header p {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 1rem;
+    color: rgba(255,255,255,0.7);
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
     line-height: 1.6;
 }
 
-/* Token Content Container */
-.token-content {
-    background: #1E2028;
+.chart-wrapper {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.05);
     border-radius: 24px;
-    max-width: 800px;
+    padding: 2rem;
     margin: 0 auto;
-    padding: 32px;
+    max-width: 1100px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    backdrop-filter: blur(10px);
 }
 
-/* Chart Section */
-.chart-section {
-    background: #171821;
-    border-radius: 16px;
-    padding: 16px;
-    margin-bottom: 24px;
-}
+@media (max-width: 768px) {
+    .section-dark {
+        padding: 3rem 0;
+    }
 
-.chart-title {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 14px;
-    font-weight: 500;
-    text-transform: uppercase;
-    margin-bottom: 12px;
-    padding-left: 4px;
-}
+    .token-header h2 {
+        font-size: 2rem;
+    }
 
-.chart-container {
-    background: #0D0E12;
-    border-radius: 12px;
-    overflow: hidden;
-    width: 100%;
-    aspect-ratio: 16/9;
-}
+    .token-header p {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
 
-.chart-container iframe {
-    width: 100%;
-    height: 100%;
-    border: 0;
+    .chart-wrapper {
+        padding: 1rem;
+        margin: 0 1rem;
+        border-radius: 16px;
+    }
 }
 
 /* Contract Section */
@@ -1542,95 +1740,103 @@ footer {
 
 /* Countdown Timer Styles */
 .countdown-container {
-    background: rgba(0, 0, 0, 0.4);
-    border-radius: 20px;
-    padding: 25px;
-    margin: 30px auto;
-    max-width: 600px;
+    background: rgba(20, 20, 20, 0.95);
+    border-radius: 8px;
+    padding: 8px 12px;
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
+    position: fixed;
+    top: 100px;
+    left: 15px;
+    z-index: 1000;
+    width: auto;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
 }
 
 .countdown-container h3 {
-    text-align: center;
-    margin: 0 0 20px;
-    font-size: 1.2rem;
-    font-weight: 500;
-    color: rgba(255, 255, 255, 0.9);
+    margin: 0 0 4px;
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.8);
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
+    text-align: center;
 }
 
 .countdown {
     display: flex;
+    gap: 10px;
     justify-content: center;
-    gap: 20px;
-    margin-bottom: 15px;
 }
 
 .countdown-item {
+    min-width: 32px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-width: 80px;
 }
 
 .countdown-number {
-    font-size: 2.5rem;
+    font-size: 1rem;
+    line-height: 1;
     font-weight: 700;
-    color: #00FF9D;
+    color: #E01A2B;
     font-family: 'Roboto Mono', monospace;
-    text-shadow: 0 0 10px rgba(0, 255, 157, 0.3);
+    text-shadow: 0 0 8px rgba(224, 26, 43, 0.2);
 }
 
 .countdown-label {
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.55rem;
+    color: rgba(255, 255, 255, 0.6);
     text-transform: uppercase;
-    margin-top: 5px;
+    margin-top: 2px;
+    line-height: 1;
 }
 
-.countdown-date {
-    text-align: center;
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 0.9rem;
-    margin-top: 15px;
+/* Add hover effect */
+.countdown-container:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
 }
 
 /* Mobile responsiveness */
 @media (max-width: 768px) {
     .countdown-container {
-        margin: 20px 15px;
-        padding: 20px 15px;
+        position: fixed;
+        top: auto;
+        bottom: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 6px 10px;
+    }
+
+    .countdown-container:hover {
+        transform: translateX(-50%) scale(1.02);
     }
 
     .countdown {
-        gap: 15px;
+        gap: 8px;
     }
 
     .countdown-item {
-        min-width: 60px;
+        min-width: 28px;
     }
 
     .countdown-number {
-        font-size: 2rem;
+        font-size: 0.9rem;
     }
 
     .countdown-label {
-        font-size: 0.8rem;
+        font-size: 0.5rem;
     }
 }
 
 /* Hero Tweet Styles */
 .hero-tweet {
-    max-width: 550px;
-    width: 100%;  /* Ensure it takes full width up to max-width */
-    margin: 30px auto;
-    background: rgba(0, 0, 0, 0.4);
-    border-radius: 20px;
-    padding: 20px;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .hero-tweet iframe {
@@ -1921,4 +2127,72 @@ footer {
     font-size: 1.2rem;
     color: #444;
     margin-bottom: 20px;
+}
+
+/* Social Media Coverage Section */
+.social-coverage-grid {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.featured-tweet {
+    background: white;
+    border-radius: 24px;
+    padding: 30px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+    transition: transform 0.3s ease;
+    margin-bottom: 40px;
+}
+
+.featured-tweet:hover {
+    transform: translateY(-5px);
+}
+
+.featured-tweet iframe {
+    margin: 0 auto !important;
+    width: 100% !important;
+}
+
+.tweet-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.tweet-embed {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.tweet-embed:hover {
+    transform: translateY(-5px);
+}
+
+.tweet-embed iframe {
+    width: 100% !important;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #666;
+    font-size: 1.2rem;
+    margin: -30px 0 40px;
+}
+
+@media (max-width: 768px) {
+    .social-coverage-grid {
+        padding: 20px;
+    }
+    
+    .featured-tweet {
+        padding: 20px;
+    }
+    
+    .tweet-grid {
+        grid-template-columns: 1fr;
+    }
 }
