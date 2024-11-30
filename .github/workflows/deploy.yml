@@ -25,12 +25,15 @@ jobs:
       - name: Build
         run: npm run build
         
-      - name: Add .nojekyll file
-        run: touch ./out/.nojekyll
+      - name: Fix asset paths
+        run: |
+          cd out
+          find . -type f -name "*.html" -exec sed -i 's|/_next/|./_next/|g' {} +
+          touch .nojekyll
         
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: out
           branch: gh-pages
-          clean: true 
+          clean: true
